@@ -61,7 +61,7 @@ public class Road extends JPanel
         {
             rocksRight = new Rock[1];
         }
-        else if(Game.difficulty1 == 1)
+        else if(Game.difficulty2 == 1)
         {
             rocksRight = new Rock[4];
         }

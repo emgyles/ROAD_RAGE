@@ -43,7 +43,8 @@ public class Car //extends JPanel
         a = x;
         b = y;
         //c is the Rectangle Hitbox
-        c = new Rectangle(x, y, (50*screenWidth/800), (70*screenHeight/800));
+        //c = new Rectangle(x, y, (50*screenWidth/800), (70*screenHeight/800));
+        c = new Rectangle(x, y, (55*screenWidth/800), (109*screenHeight/800));
         
     }
 
@@ -112,6 +113,6 @@ public class Car //extends JPanel
       
     public void updateHitbox()
     {
-        c = new Rectangle(x, y, (50*screenWidth/800), (70*screenHeight/800));
+        c = new Rectangle(x, y, (55*screenWidth/800), (109*screenHeight/800));
     }
 }

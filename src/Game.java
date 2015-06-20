@@ -69,8 +69,8 @@ public class Game
         if(difficulty2 != 3){
        
 
-        Car a = new Car(180*screenWidth/800, 710*screenHeight/800, player1Name);
-        Car b = new Car(580*screenWidth/800, 710*screenHeight/800, player2Name);
+        Car a = new Car(180*screenWidth/800, 670*screenHeight/800, player1Name);
+        Car b = new Car(580*screenWidth/800, 670*screenHeight/800, player2Name);
         road = new Road(a, b, this);
         road.start();
         test.setVisible(true);

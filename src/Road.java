@@ -1,11 +1,15 @@
 
 /**
  * Write a description of class Road here.
+
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
+import graphics.ImageLoader;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
+
 import java.awt.*;
 import java.awt.event.*;
 public class Road extends JPanel
@@ -32,13 +36,15 @@ public class Road extends JPanel
     public Grass grassRight;
     
     
-
+    private BufferedImage cMoney;
     static Car[] cars;
     private Game game;
     
     
     public Road(Car a, Car b, Game g)
     {
+    	game = g;
+    	
         /*if(Game.player1Name.equals("buggy"))
         {
             rocksLeft = new Rock[1];
@@ -74,7 +80,6 @@ public class Road extends JPanel
         screenWidth = (int)(screenSize.getWidth()/2);
         screenHeight = (int)(screenSize.getHeight()/1.15);
         SLOW_SPOTS  = new Rectangle[3];
-        //SLOW_SPOTS[0] = new Rectangle(-screenHeight*10, 0, (100*screenWidth/800), screenHeight*100);
         SLOW_SPOTS[0] = new Rectangle(0, 0, (100*screenWidth/800), screenHeight);
         SLOW_SPOTS[1] = new Rectangle((300*screenWidth/800), 0, (200*screenWidth/800), screenHeight*100);
         SLOW_SPOTS[2] = new Rectangle((700*screenWidth/800), 0, (100*screenWidth/800), screenHeight*100);
@@ -82,7 +87,7 @@ public class Road extends JPanel
         
         
         
-        game = g;
+        
         setLayout(null);
         setSize(screenWidth,screenHeight);
         setBackground(new Color(72, 129, 48));
@@ -195,7 +200,7 @@ public class Road extends JPanel
         }
         
         //LEFT CAR LIVES
-        if ((cars[0].getX()+(50*screenWidth/800) == screenWidth/2) || cars[0].getRecta().intersects(left) ||  (cars[0].getRecta().intersects(top)) || (cars[0].getRecta().intersects(bottom)))
+        if ((cars[0].getX()+(55*screenWidth/800) == screenWidth/2) || cars[0].getRecta().intersects(left) ||  (cars[0].getRecta().intersects(top)) || (cars[0].getRecta().intersects(bottom)))
         {
             cars[0].setLives();
             cars[0].reset();
@@ -302,8 +307,15 @@ public class Road extends JPanel
             else if (car.getYVelocity() > 0)
                 car.setYVelocity(getCarSpeed(car));
                 
-            g.fillRect(car.getX(), car.getY(), 50*screenWidth/800, 70*screenHeight/800);
+            //g.fillRect(car.getX(), car.getY(), 50*screenWidth/800, 70*screenHeight/800);
+            init();
+            g.drawImage(cMoney, car.getX(), car.getY(),55*screenWidth/800, 109*screenHeight/800, null); 
+            
         }
+    }
+    public void init(){
+    	ImageLoader loader = new ImageLoader();
+    	cMoney = loader.load("/red car.png");
     }
     
     public void grass(Graphics g)

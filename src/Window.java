@@ -12,7 +12,8 @@
 
 import graphics.ImageLoader;
 
-import javax.imageio.ImageIO;
+
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -75,8 +76,7 @@ public class Window extends JPanel
     	mainScreen = loader.load("/Window Pic.png");
     }
     public void paint(Graphics g){
-    	//mainScreen.getScaledInstance((int)(mainScreen.getWidth()/800), (int)(mainScreen.getHeight()/800), Image.SCALE_FAST);
-    	//g.drawImage(mainScreen, 100, 0, this);
+    	
     	g.drawImage(mainScreen, 0, 0, screenWidth, screenHeight, this);
     }
     

@@ -17,6 +17,8 @@ public class Game
     public String player1Name;
     public static String playerTwoName;
     public String player2Name;
+    public static int car1;
+    public static int car2;
     private int screenWidth;
     private int screenHeight;
     public Game()
@@ -60,7 +62,7 @@ public class Game
       //Displays JOptionPanes to ask for names/ difficulties
         Object[] levels = {"Extremely Difficult", "Medium", "Easy"};
         difficulty1 = JOptionPane.showOptionDialog(null, "Player 1: Choose your Difficulty", "Car 1",JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,null, levels, levels[0]);
-
+        
         playerTwoName = JOptionPane.showInputDialog(null,"Player 2: Enter Name","Car 2", JOptionPane.PLAIN_MESSAGE);
         player2Name = playerTwoName;
         difficulty2 = JOptionPane.showOptionDialog(null, "Player 2: Choose your Difficulty", "Car 2",JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,null, levels, levels[0]);

@@ -314,6 +314,7 @@ public class Road extends JPanel
         }
     }
     public void init(){
+    	
     	ImageLoader loader = new ImageLoader();
     	cMoney = loader.load("/red car.png");
     }

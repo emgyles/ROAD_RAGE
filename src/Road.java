@@ -37,6 +37,7 @@ public class Road extends JPanel
     
     
     private BufferedImage cMoney;
+    private BufferedImage rockImg;
     static Car[] cars;
     private Game game;
     
@@ -306,18 +307,32 @@ public class Road extends JPanel
                 car.setYVelocity(-getCarSpeed(car));
             else if (car.getYVelocity() > 0)
                 car.setYVelocity(getCarSpeed(car));
-                
-            //g.fillRect(car.getX(), car.getY(), 50*screenWidth/800, 70*screenHeight/800);
-            init();
+            
+            init(car.getColor());
             g.drawImage(cMoney, car.getX(), car.getY(),55*screenWidth/800, 109*screenHeight/800, null); 
             
         }
     }
-    public void init(){
-    	
-    	ImageLoader loader = new ImageLoader();
-    	cMoney = loader.load("/red car.png");
+    public void init(int i)
+    {
+    	if (i == 0){
+    		ImageLoader loader = new ImageLoader();
+    		cMoney = loader.load("/red car.png");
+    	}
+    	else if(i ==1){
+    		ImageLoader loader = new ImageLoader();
+    		cMoney = loader.load("/blue car.png");
+    	}
+    	else if(i == 2){
+    		ImageLoader loader = new ImageLoader();
+    		cMoney = loader.load("/green car.png");
+    	}
+    	if(i ==3){
+    		ImageLoader loader = new ImageLoader();
+    		rockImg = loader.load("/rock copy.png");
+    	}
     }
+    	
     
     public void grass(Graphics g)
     {
@@ -348,6 +363,9 @@ public class Road extends JPanel
             {
                 g.setColor(new Color(58,167,203));
                 g.fillRect(rock.getX(),rock.getY(), 40*screenWidth/800,40*screenHeight/800);
+                //init(3);
+                //g.drawImage(rockImg, rock.getX(), rock.getY(), 40*screenWidth/800,40*screenHeight/800, null);
+               // g.drawImage(cMoney, car.getX(), car.getY(),55*screenWidth/800, 109*screenHeight/800, null); 
             }
             else
             {

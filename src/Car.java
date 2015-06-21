@@ -19,20 +19,20 @@ public class Car //extends JPanel
     private int lives;
     private Rectangle c;
     private String name;
-
+    private int color;
     private int a;
     private int b;
     private int screenWidth;
     private int screenHeight;
 
-    public Car(int x, int y, String name)
+    public Car(int x, int y, String name, int carColor)
     {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         screenWidth = (int)(screenSize.getWidth()/2);
         screenHeight = (int)(screenSize.getHeight()/1.15);
         
         
-        
+        color = carColor;
         
         
         this.x = x;
@@ -47,7 +47,10 @@ public class Car //extends JPanel
         c = new Rectangle(x, y, (55*screenWidth/800), (109*screenHeight/800));
         
     }
-
+    public int getColor()
+    {
+    	return color;	
+    }
     public String getName()
     {
         return name;

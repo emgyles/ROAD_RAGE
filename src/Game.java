@@ -13,7 +13,7 @@ public class Game
     public static int difficulty1;
     public static int difficulty2 = 3;
     public static String playerOneName;
-    public String player1Name;
+    private String player1Name;
     public static String playerTwoName;
     public String player2Name;
     public static int car1Color;
@@ -59,7 +59,9 @@ public class Game
             difficulty2 = 2;
             player1Name = "Player 1";
             player2Name = "Player 2";
-        }
+            car1Color = 0;
+            car2Color = 0;
+        }else{
       
       //Displays JOptionPanes to ask for names/ difficulties
         Object[] levels = {"Extremely Difficult", "Medium", "Easy"};
@@ -70,7 +72,8 @@ public class Game
         player2Name = playerTwoName;
         car2Color = JOptionPane.showOptionDialog(null, "What color car would you like?", "Car 2 Color", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, carColors, carColors[0]);
         difficulty2 = JOptionPane.showOptionDialog(null, "Player 2: Choose your Difficulty", "Car 2",JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,null, levels, levels[0]);
-
+        }
+      
         //Only creates road once the last question has been answered
         if(difficulty2 != 3){
        
@@ -93,7 +96,7 @@ public class Game
                     c.updatePosition();
                 }
                 try{
-                    Thread.sleep(40); //50
+                    Thread.sleep(45); //50
                 } catch (Exception e){
 
                 }
@@ -133,7 +136,10 @@ public class Game
     {
         here = i;
     }
-
+    public String getPlayer1Name()
+    {
+    	return player1Name;
+    }
     public double getScreenHeight()
     {
         return screenHeight;

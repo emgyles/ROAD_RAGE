@@ -73,7 +73,7 @@ public class Window extends JPanel
     
     public void init(){
     	ImageLoader loader = new ImageLoader();
-    	mainScreen = loader.load("/Window Pic.png");
+    	mainScreen = loader.load("/Win.png");
     }
     public void paint(Graphics g){
     	

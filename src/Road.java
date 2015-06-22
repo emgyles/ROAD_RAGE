@@ -38,6 +38,7 @@ public class Road extends JPanel
     
     private BufferedImage cMoney;
     private BufferedImage rockImg;
+    private BufferedImage grassImg;
     static Car[] cars;
     private Game game;
     
@@ -46,11 +47,7 @@ public class Road extends JPanel
     {
     	game = g;
     	
-        /*if(Game.player1Name.equals("buggy"))
-        {
-            rocksLeft = new Rock[1];
-            rocksRight = new Rock[1];
-        }*/
+        
         if(Game.difficulty1 == 2)
         {
             rocksLeft = new Rock[1];
@@ -91,7 +88,7 @@ public class Road extends JPanel
         
         setLayout(null);
         setSize(screenWidth,screenHeight);
-        setBackground(new Color(72, 129, 48));
+        setBackground(new Color(5, 90, 25));
         cars = new Car[2];
         cars[0] = a;
         cars[1] = b;
@@ -122,7 +119,7 @@ public class Road extends JPanel
         g.setColor(new Color(0,0,0));
         g.fillRect(screenWidth/2-(10*screenWidth/800),0,(10*screenWidth/800),screenHeight);
         //Two Roads
-        g.setColor(new Color(59,59,59));
+        g.setColor(new Color(128,128,128));
         g.fillRect(screenWidth/8,0,screenWidth/4,screenHeight);
         
         g.fillRect(5*screenWidth/8,0,screenWidth/4,screenHeight);
@@ -231,13 +228,16 @@ public class Road extends JPanel
         int x2 = 430*screenWidth/800;
         for (int i = 0; i < cars[0].getLives(); i++)
         {
-            g.fillRect(x, 25*screenWidth/800, 25*screenHeight/800, 25*screenHeight/800);
             x += 30*screenWidth/800;
+            init(cars[0].getColor());
+            g.drawImage(cMoney, x, 25*screenWidth/800 ,25*screenWidth/800, 49*screenHeight/800, null); 
         }
         for (int i = 0 ; i < cars[1].getLives(); i++)
         {
-            g.fillRect(x2, 25*screenWidth/800, 25*screenHeight/800, 25*screenHeight/800);
             x2 += 30*screenWidth/800;
+            init(cars[1].getColor());
+            g.drawImage(cMoney, x2, 25*screenWidth/800 ,25*screenWidth/800, 49*screenHeight/800, null); 
+
         }
     }
 
@@ -331,6 +331,11 @@ public class Road extends JPanel
     		ImageLoader loader = new ImageLoader();
     		rockImg = loader.load("/rock copy.png");
     	}
+    	
+    	if(i ==4){
+    		ImageLoader loader = new ImageLoader();
+    		 grassImg = loader.load("/grass.png");
+    	}
     }
     	
     
@@ -340,9 +345,9 @@ public class Road extends JPanel
         grassRight.updateHitbox();
         if(grassLeft.getY() < screenHeight)
         {
-            g.setColor(new Color(67, 240, 61));
-            g.fillRect(grassLeft.getX(), grassLeft.getY(), 20*screenWidth/800, 20*screenHeight/800);
-            g.fillRect(grassRight.getX(), grassRight.getY(), 20*screenWidth/800, 20*screenHeight/800);
+            init(4);
+            g.drawImage(grassImg, grassLeft.getX() -5*screenWidth/800, grassLeft.getY(), 40*screenWidth/800, 40*screenHeight/800,null );
+            g.drawImage(grassImg, grassRight.getX() -5*screenWidth/800, grassRight.getY(), 40*screenWidth/800, 40*screenHeight/800,null );
         }
         else
         {
@@ -361,11 +366,9 @@ public class Road extends JPanel
 
             if(rock.getY() < screenHeight)
             {
-                g.setColor(new Color(58,167,203));
-                g.fillRect(rock.getX(),rock.getY(), 40*screenWidth/800,40*screenHeight/800);
-                //init(3);
-                //g.drawImage(rockImg, rock.getX(), rock.getY(), 40*screenWidth/800,40*screenHeight/800, null);
-               // g.drawImage(cMoney, car.getX(), car.getY(),55*screenWidth/800, 109*screenHeight/800, null); 
+                init(3);
+                g.drawImage(rockImg, rock.getX() - 10*screenWidth/800, rock.getY() - 5*screenHeight/800, 65*screenWidth/800,65*screenHeight/800, null);
+               
             }
             else
             {
@@ -379,8 +382,10 @@ public class Road extends JPanel
 
             if(rock.getY() < screenHeight)
             {
-                g.setColor(new Color(58,167,203));
-                g.fillRect(rock.getX(),rock.getY(), 40*screenWidth/800,40*screenHeight/800);
+                init(3);
+                g.drawImage(rockImg, rock.getX() - 10*screenWidth/800, rock.getY() - 5*screenHeight/800, 65*screenWidth/800,65*screenHeight/800, null);
+              
+                
             }
             else
             {
@@ -454,7 +459,6 @@ public class Road extends JPanel
             endtime(g, i);
         }
         
-        //g.drawString("Press SPACE to Play Again", 200, 700);
     }
 
     public void setUpKeys()

@@ -45,7 +45,7 @@ public class Grass
         }
         this.y = y;
         alm = 0;
-        grass = new Rectangle(x,y, 20*screenWidth/800, 20*screenHeight/800);
+        grass = new Rectangle(x,y, 25*screenWidth/800, 25*screenHeight/800);
     }
     public int getX()
     {
@@ -98,7 +98,7 @@ public class Grass
     }
     public void updateHitbox()
     {
-        grass = new Rectangle(x,y, 20*screenWidth/800,20*screenHeight/800);
+        grass = new Rectangle(x,y, 25*screenWidth/800,25*screenHeight/800);
     }
     public void setX(int i, int whichBloop)
     {
